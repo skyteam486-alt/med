@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Activity } from "lucide-react";
-import { logoutAction } from "@/app/auth-actions";
-import { Button } from "@/components/ui/button";
+import { LogoutButton } from "@/components/logout-button";
 import { Badge } from "@/components/ui/badge";
 
 export function DashboardHeader({
@@ -26,11 +25,7 @@ export function DashboardHeader({
               {role}
             </Badge>
           </div>
-          <form action={logoutAction}>
-            <Button type="submit" variant="outline" size="sm">
-              Log out
-            </Button>
-          </form>
+          <LogoutButton />
         </div>
       </div>
     </header>

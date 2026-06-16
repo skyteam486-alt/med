@@ -47,5 +47,11 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // Prevent authenticated pages from being stored in the browser's bfcache, so the
+  // back button cannot redisplay a dashboard after the user logs out.
+  if (isProtected) {
+    supabaseResponse.headers.set("Cache-Control", "no-store, max-age=0, must-revalidate");
+  }
+
   return supabaseResponse;
 }

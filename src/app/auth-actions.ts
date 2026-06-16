@@ -97,9 +97,3 @@ export async function createProfileAction(_prev: AuthState, formData: FormData):
   revalidatePath("/", "layout");
   redirect("/");
 }
-
-export async function logoutAction() {
-  const supabase = await createClient();
-  await supabase.auth.signOut();
-  redirect("/login");
-}

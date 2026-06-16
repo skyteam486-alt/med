@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Activity } from "lucide-react";
 import { LogoutButton } from "@/components/logout-button";
+import { BfcacheGuard } from "@/components/bfcache-guard";
 import { Badge } from "@/components/ui/badge";
 
 export function DashboardHeader({
@@ -13,6 +14,7 @@ export function DashboardHeader({
   const home = role === "doctor" ? "/doctor" : "/patient";
   return (
     <header className="border-b bg-white">
+      <BfcacheGuard />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href={home} className="flex items-center gap-2 font-semibold text-teal-700">
           <Activity className="h-6 w-6" />
